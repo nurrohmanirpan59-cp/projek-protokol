@@ -20,4 +20,6 @@ class divisis extends Model
     {
         return $this->hasMany(pegawais::class, 'divisi_id');
     }
+
+    
 }

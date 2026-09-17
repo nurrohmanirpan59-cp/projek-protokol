@@ -28,7 +28,7 @@
             <!-- Pesan Error jika validasi gagal -->
             @error('nama_divisi')
                 <div class="invalid-feedback">{{ $message }}</div>
-            @errorEnd
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-success">Simpan Data</button>

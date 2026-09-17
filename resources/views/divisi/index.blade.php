@@ -28,10 +28,11 @@
         <tbody>
             @forelse ($divisis as $index => $divisi)
             <tr>
+                
                 <td>{{ $divisis->firstItem() + $index }}</td>
                 <td>{{ $divisi->nama_divisi }}</td>
                 <td>
-                    <a href="{{ route('divisi.edit', $divisi->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    
                     <form action="{{ route('divisi.destroy', $divisi->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus divisi ini?')">
                     
                     <!-- 1. Wajib CSRF Token untuk Keamanan -->
@@ -43,6 +44,8 @@
                     <!-- 3. Tombol Submit -->
                     <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                     
+<a href="{{ route('divisi.edit', $divisi->id) }}" class="btn btn-sm btn-warning">Edit</a>
+
                 </td>
                 
                     

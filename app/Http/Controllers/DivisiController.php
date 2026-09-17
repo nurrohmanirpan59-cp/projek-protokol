@@ -20,9 +20,7 @@ class DivisiController extends Controller
     }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Menampilkan Seluruh Data Divisi 
     public function create()
     {
         {
@@ -30,9 +28,7 @@ class DivisiController extends Controller
     }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // function buat menambahkan data kedalam database
     public function store(Request $request)
     {
         
@@ -40,7 +36,7 @@ class DivisiController extends Controller
             'nama_divisi' => 'required|string|max:255',
         ]);
 
-        Divisi::create([
+        Divisis::create([
             'nama_divisi' => $request->nama_divisi,
         ]);
 
@@ -80,22 +76,19 @@ class DivisiController extends Controller
     }
     
 
-    /**
-     * Update the specified resource in storage.
-     */
-   
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    // funnction buat menghapus data 
     public function destroy(string $id)
-    {
+    
         {
-        // 1. Jalankan perintah hapus data via Eloquent
-        $divisi->delete();
+    // 1. Cari data di database berdasarkan $id
+    // Catatan: Ganti 'Divisi' dengan nama class Model kamu jika berbeda
+    $divisi = Divisis::findOrFail($id);
 
-        // 2. Kembalikan user ke halaman index dengan pesan sukses
-        return redirect()->route('divisi.index')->with('success', 'Data divisi berhasil dihapus!');
-    }
-    }
+    // 2. Jalankan perintah hapus
+    $divisi->delete();
+
+    // 3. Kembalikan user ke halaman index dengan pesan sukses
+    return redirect()->route('divisi.index')->with('success', 'Data divisi berhasil dihapus!');
+        }
+    
 }
