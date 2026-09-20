@@ -53,16 +53,16 @@ class DivisiController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * FUNCTION BUAT EDIT DATA 
      */
     // 4. Form edit divisi
-    public function edit(Divisi $divisi)
+    public function edit(divisis $divisi)
     {
         return view('divisi.edit', compact('divisi'));
     }
 
     // 5. Update divisi
-    public function update(Request $request, Divisi $divisi)
+    public function update(Request $request, divisis $divisi)
     {
         $request->validate([
             'nama_divisi' => 'required|string|max:255',
