@@ -90,5 +90,20 @@ class DivisiController extends Controller
     // 3. Kembalikan user ke halaman index dengan pesan sukses
     return redirect()->route('divisi.index')->with('success', 'Data divisi berhasil dihapus!');
         }
+
+        //Fitur Pencarian Realtime 
+        public function search(Request $request)
+    {
+        // Tangkap keyword dari input
+        $search = $request->input('search');
+
+        // Ambil data divisi berdasarkan pencarian
+        $divisi = Divisi::when($search, function ($query, $search) {
+            return $query->where('nama_divisi', 'like', "%{$search}%");
+        })->get();
+
+        // Kirim data ke view
+        return view('divisi.index', compact('divisi'));
+    }
     
 }

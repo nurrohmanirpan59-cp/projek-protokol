@@ -16,7 +16,9 @@ return new class extends Migration
             // Foreign Key (FK) terhubung ke tabel divisis
             $table->foreignId('divisi_id')->constrained('divises')->onDelete('cascade');
             $table->string('nama');
+            
             $table->string('nip')->unique();
+            
             $table->timestamps();
         });
     }

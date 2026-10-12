@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\pegawais;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -13,9 +13,9 @@ class PegawaiController extends Controller
     {
         {
          // 2. AMBIL DATA DARI DATABASE
-        // Eloquent 'all()' akan menjalankan query: SELECT * FROM divises;
-        $divisis = Divisis::latest()->paginate(10);
-        return view('divisi.index', compact('divisis'));
+        
+        $data_pegawai = pegawais::with('divisi')->paginate(10);
+        return view('pegawai.index', compact('data_pegawai'));
     }
     }
 
