@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\pegawais;
+use App\Models\divisis;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -20,11 +21,13 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * function untuk menambahkan data ke dalam database
      */
     public function create()
     {
-        //
+        //ambil data divisi dari database biar form ada dropdown divisi 
+        $divisis = divisis::all(); 
+        return view('pegawai.create', compact('divisis'));
     }
 
     /**
@@ -32,7 +35,18 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input data
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'divisi_id' => 'required',
+            // tambahkan field lainnya sesuai kebutuhan
+        ]);
+
+        // Simpan ke database
+        Pegawai::create($request->all());
+
+        // Redirect kembali ke halaman index dengan pesan sukses
+        return redirect()->route('pegawai.index')->with('success', 'Data pegawai berhasil ditambahkan!');
     }
 
     /**
