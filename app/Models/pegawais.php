@@ -13,6 +13,7 @@ class pegawais extends Model //Menentukan nama calas pada model
         'divisi_id',
         'nama',
         'nip',
+        'jabatan',
     ];
 
     // Relasi: Seorang pegawai MILIK SATU divisi (N:1)

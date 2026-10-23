@@ -25,6 +25,16 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="nama" class="form-label">Nip</label>
+                                <input type="text" class="form-control" id="nama" name="nip" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Jabatan</label>
+                                <input type="text" class="form-control" id="nama" name="jabatan" required>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="divisi_id" class="form-label">Divisi</label>
                                 <select class="form-select" id="divisi_id" name="divisi_id" required>
                                     <option value="">Pilih Divisi</option>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Divisi</title>
+    <title>Edit Pegawai</title>
     
     <!-- Google Font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,11 +37,11 @@
                         
                         <!-- Header Section -->
                         <div class="mb-4">
-                            <h4 class="fw-bold text-dark mb-1">Edit Divisi</h4>
-                            <p class="text-secondary small mb-0">Perbarui informasi divisi di bawah ini.</p>
+                            <h4 class="fw-bold text-dark mb-1">Edit Pegawai</h4>
+                            <p class="text-secondary small mb-0">Perbarui informasi Edit  di bawah ini.</p>
                         </div>
 
-                        <form action="{{ route('divisi.update', $divisi->id) }}" method="POST">
+                        <form action="{{ route('pegawai.update',$edit_data->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 
